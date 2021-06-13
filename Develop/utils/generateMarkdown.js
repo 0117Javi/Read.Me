@@ -2,21 +2,21 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
-    case "MIT License":
-      return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    case "MIT":
+      return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`;
       break;
-    case "Mozilla Public License 2.0":
-      return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
-      break;
-    case "Apache License 2.0":
-      return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-      break;
-    case "Boost Software License 1.0":
-      return "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
-      break;
-    case "No license":
-      return "";
-      break;
+    // case "Mozilla Public License 2.0":
+    //   return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
+    //   break;
+    // case "Apache License 2.0":
+    //   return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+    //   break;
+    // case "Boost Software License 1.0":
+    //   return "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
+    //   break;
+    // case "No license":
+    //   return "";
+    //   break;
   }
 }
 
@@ -49,30 +49,40 @@ function renderLicenseLink(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title} 
-      # Table of Contents 
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#contributes)
-    - [License](#license)
-    - [Tests] (#tests)
-    - [Questions] (#questions)
-      ## Description ${data.Description}
+  ${renderLicenseBadge(data.License)}
 
-      ## Installation ${data.Installation} 
+## Table of Contents 
 
-      ## Usage ${data.Usage} 
+* [Installation](#installation)
 
-      ## Contribution ${data.Contribution} 
+* [Usage](#usage)
 
-      ## Test ${data.Test} 
+* [Credits](#contributes)
 
-      ## Questions ${data.Github} 
+* [License](#license)
 
-      ## ${data.Email}  
+* [Tests](#tests)
 
-       # License 
-       ${renderLicenseBadge(data.License)}
-       ${renderLicenseLink(data.License)}
+* [Questions](#questions)
+
+## Description ${data.Description}
+
+      * Installation ${data.Installation} 
+
+      * Usage ${data.Usage} 
+
+      * Contribution ${data.Contribution} 
+
+      * Test ${data.Test} 
+
+      * Questions ${data.Github} 
+
+## ${data.Email}  
+
+## License 
+
+${renderLicenseBadge(data.License)}
+${renderLicenseLink(data.License)}
 
 `;
 }

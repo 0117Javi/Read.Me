@@ -49,9 +49,9 @@ const questions = [
     message: "What licenses are you using?",
     name: "License",
     choices: [
-      "MIT License",
+      "MIT",
       "Mozilla Public License 2.0",
-      "Apache License 2.0",
+      "Apache 2.0",
       "Boost Software License 1.0",
       "No license",
     ],
